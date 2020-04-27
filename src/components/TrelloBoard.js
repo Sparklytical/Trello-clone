@@ -12,6 +12,11 @@ const ListsContainer = styled.div`
   flex-direction: row;
 `;
 
+const H2 = styled.h2`
+  color: white;
+  font-family: Roboto, sans-serif;
+`;
+
 // TODO: Fix performan
 
 class TrelloBoard extends PureComponent {
@@ -22,7 +27,7 @@ class TrelloBoard extends PureComponent {
     this.props.dispatch(setActiveBoard(boardID));
   }
 
-  onDragEnd = result => {
+  onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result;
 
     if (!destination) {
@@ -53,9 +58,9 @@ class TrelloBoard extends PureComponent {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Link to="/">Go Back</Link>
-        <h2>{board.title}</h2>
+        <H2>{board.title}</H2>
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
-          {provided => (
+          {(provided) => (
             <ListsContainer
               {...provided.droppableProps}
               ref={provided.innerRef}
@@ -63,7 +68,7 @@ class TrelloBoard extends PureComponent {
               {listOrder.map((listID, index) => {
                 const list = lists[listID];
                 if (list) {
-                  const listCards = list.cards.map(cardID => cards[cardID]);
+                  const listCards = list.cards.map((cardID) => cards[cardID]);
 
                   return (
                     <TrelloList
@@ -86,10 +91,10 @@ class TrelloBoard extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   lists: state.lists,
   cards: state.cards,
-  boards: state.boards
+  boards: state.boards,
 });
 
 export default connect(mapStateToProps)(TrelloBoard);
