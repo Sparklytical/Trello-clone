@@ -1,5 +1,6 @@
 {
   "name": "trello-clone",
+  "homepage": "https://evilspark.github.io/Trello-clone/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
