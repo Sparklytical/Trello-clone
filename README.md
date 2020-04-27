@@ -9,6 +9,7 @@
  - React Beautiful DND
  - React Spring
  - Redux
+ - Redux Persist
  - CRUD operations for both boards and columns.
 
 ![enter image description here](https://github.com/EvilSpark/Trello-clone/blob/master/src/images/trello1.png?raw=true?raw=true)
